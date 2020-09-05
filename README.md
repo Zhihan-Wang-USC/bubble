@@ -1,9 +1,8 @@
 ---
 Hi All, well come to our project bubble!
----
 
+To start the server, run ```node sample-server.js```
 
----
 I am not exposing my db,so if you what to use the server, replace those lines with your own info in "server/sample-server.js" line 216 to 223
 ---
 ```
