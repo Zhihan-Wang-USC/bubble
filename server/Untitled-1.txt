@@ -1,0 +1,59 @@
+{
+    "found" true,
+    "related tags": [
+        "usc-student",
+        "handson-boy",
+        "csci-104"
+    ]
+}
+
+Obj.["related-tags"]
+
+DENOTE
+
+{
+    "found": true,
+    "user-info": {
+        "name" : "Yi Jiang",
+        "media" : {
+            "school-email":"xxxx@ucsd.edu",
+            "ins":"sampleinsid",
+            "phone": none
+        },
+        "tags": {
+            "trojan":true,
+            "condom":true,
+            "love-hackathon":true
+        }
+    }
+}
+
+OR 
+
+{
+    "found": false
+}
+
+AS ${user-info}
+
+
+
+{
+    "tags":{
+        "handsome":true,
+        "icecream-addict":true
+    }
+}
+
+
+{
+    "success":{
+        "handsome":true,
+        "icecream-addict":false
+    }
+}
+
+{
+    "username":"tigo",
+    "password":"12345678"
+}

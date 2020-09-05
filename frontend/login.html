@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Righteous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<style type="text/css">
+		*
+		{
+			margin:0;
+			padding:0；
+		}
+		.content
+		{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			background: linear-gradient(#e66465, #9198e5);
+			overflow: hidden;
+		}
+		.container
+		{
+			position: relative;
+			width: 800px;
+			display: flex;
+			justify-content: space-between;
+			opacity: 0.8;
+			filter: url(#gooey);
+		}
+		svg
+		{
+			width: 0;
+			height: 0;
+		}
+		.text
+		{
+			z-index: 2;
+			font-size: 50px;
+			font-family: Righteous;
+			font-weight: 900;
+		}
+		.green{
+			background-color: black;
+			box-shadow: 0px 1px 6px rgba(0,0,0,0.2);
+			opacity: 0.7;
+		}
+		.navbar .collapse .white, .navbar .collapse a{
+			color: white;
+		}
+		.navbar .title{
+			color: white;
+			font-size: 28px;
+		}
+	</style>
+</head>
+<body>
+
+    
+	<!-- navbar -->
+	<nav class="navbar navbar-expand-lg navbar-light green">
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+	    <a class="navbar-brand title" href="#"><strong>Bubble+ </strong></a>
+	    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+	      <li class="nav-item">
+	        <a class="nav-link white" href="#">Home</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link white" href="#">Chat</a>
+	      </li>
+	    </ul>
+	  </div>
+	</nav>
+
+<link rel="stylesheet" href="login.css">
+	<div class="content">
+		    <div class="login">    
+    <form id="login" method="get" action="login.php">    
+        <label><b>User Name     
+        </b>    
+        </label>    
+        <input type="text" name="Uname" id="Uname" placeholder="Username">    
+        <br><br>    
+        <label><b>Password     
+        </b>    
+        </label>    
+        <input type="Password" name="Pass" id="Pass" placeholder="Password">    
+        <br><br>  
+        <a href="bubble 1.html"> <input type="button" name="log" id="log" value="Log In"> </a>  
+        <br><br>    
+        <a href="signup.html"><input type="button" name="sign" id="sign" value="Sign Up"></a>
+        <br><br>    
+        <input type="checkbox" id="check">    
+        <span>Remember me</span>    
+        <br><br>    
+        <a href="#">Forgot Password</a>    
+    </form>     
+</div>  
+	</div>
+  
+
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<script >
+		$(function(){
+			$(".container .circle").draggable();
+		})
+		let circles = document.querySelectorAll(".content .container .circle .text");
+		for(const circle of circles){
+			circle.onclick = function(){
+			// window.alert(this.innerHTML);
+			document.querySelector(".navbar .title").innerHTML = this.innerHTML;
+			};
+		}
+		
+	</script>
+
+</body>
+</html>

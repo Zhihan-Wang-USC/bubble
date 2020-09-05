@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Righteous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<style type="text/css">
+		*
+		{
+			margin:0;
+			padding:0；
+		}
+		.content
+		{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			background-color: #569358;
+			overflow: hidden;
+			background: linear-gradient(#e66465, #9198e5);
+			/*background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);*/
+		}
+		.container
+		{
+			position: relative;
+			min-height: 10vh;
+			display: flex;
+			justify-content: space-between;
+			filter: url(#gooey);
+			opacity: 0.8;
+		}
+		.bar{
+			filter: url(#gooey);
+		}
+	    .circle
+		{
+			position: relative;
+			min-width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			color: black;
+			text-align: center;
+			line-height: 100px;
+			/*background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);*/
+			/*background: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);*/
+			background-: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+		}
+		.circle:before
+		{
+			content: '';
+			position: absolute;
+			top:-40px;
+			left:-40px;
+			right:-40px;
+			bottom: -40px;
+			border-radius: 50%;
+			z-index: -1;
+			filter: blur(25px);
+			/*background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);*/
+			background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+		}
+		.circle3{
+			min-width: 70px;
+			line-height: 70px;
+			height: 70px;
+		}
+		.circle3:before{
+			margin:15px;
+			filter:blur(15px);
+			top:-20px;
+			left: -20px;
+			bottom: -20px;
+			right: -20px;
+		}
+
+		.circle.circle3,
+		.circle.circle3:before
+		{
+			background:lightyellow;
+
+		}
+		.container .circle.circle1,
+		.container .circle.circle1:before
+		{
+			/*background:linear-gradient(90deg,#4682B4,#E6E6FA);*/
+		}
+		.container .circle.circle2,
+		.container .circle.circle2:before
+		{
+			/*background:linear-gradient(90deg,#ffeb3b,#da00ff);*/
+		}
+		.container .circle.circle1
+		{
+			animation: myOrbit 30s linear infinite;
+		}
+		@keyframes myOrbit {
+    		from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+    		to   { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+		}
+		.circle.circle3
+		{
+			animation: myOrbit3 60s linear infinite;
+		}
+		@keyframes myOrbit3 {
+    		from { transform: rotate(0deg); }
+    		to   { transform: rotate(360deg) ;}
+		}
+
+		.container .circle.circle2
+		{
+			animation: myOrbit2 50s linear infinite;
+		}
+		@keyframes myOrbit2 {
+    		from { transform: rotate(360deg) translateX(100px) rotate(-360deg);}
+    		to   {  transform: rotate(0deg) translateX(100px) rotate(0deg);}
+		}
+		svg
+		{
+			width: 0;
+			height: 0;
+		}
+		.text
+		{
+			z-index: 2;
+			font-size:10px;
+			font-family: Righteous;
+			font-weight: 900;
+		}
+		.green{
+			background-color: black;
+			box-shadow: 0px 1px 6px rgba(0,0,0,0.2);
+			opacity: 0.7;
+		}
+		.navbar .collapse .white, .navbar .collapse a{
+			color: white;
+		}
+		.navbar .title{
+			color: white;
+			font-size: 28px;
+		}
+		.bar{
+			display: flex;
+			flex-direction: column;
+			margin-right: 20px;
+			opacity: 0.7;
+		}
+		.add{
+			position: absolute;
+			right: 50px;
+			bottom: 30px;
+		}
+		.add img{
+			width: 80px;
+			height: 80px;
+		}
+	</style>
+</head>
+<body>
+	<!-- navbar -->
+	<nav class="navbar navbar-expand-lg navbar-light green">
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+	    <a class="navbar-brand title" href="#">myhome</a>
+	    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+	      <li class="nav-item">
+	        <a class="nav-link white" id="home" href="#">Home</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link white" href="#">Chat</a>
+	      </li>
+	    </ul>
+	    <form class="form-inline my-2 my-lg-0">
+	      <input class="form-control mr-sm-2" type="search" placeholder="Tag to add" aria-label="Search">
+	      <img src="images/add.png" alt="search" id="add" class="btn btn-outline-success my-2 my-sm-0" type="submit"></img>
+	    </form>
+	  </div>
+	</nav>
+	<!-- start of content -->
+	<div class="content">
+		<div class="container">
+<!-- 			<div class="circle circle1">
+				<div class="text">cs-104</div>
+			</div>
+			<div class="circle circle2">
+				<div class="text">cs-170</div>
+			</div>
+			<div class="circle circle2">
+				<div class="text">cs-201</div>
+			</div>
+			<div class="circle circle1">
+				<div class="text">cs-270</div>
+			</div>
+			<div class="circle circle2">
+				<div class="text">cs-303</div>
+			</div>
+			<div class="circle circle1">
+				<div class="text">cs-356</div>
+			</div> -->
+		</div>
+		<svg>
+			<filter	id="gooey">
+				<feGaussianBlur in="SourceGraphic" stdDeviation="0.5" />
+				<feColorMatrix values="
+				1 0 0 0 0
+				0 1 0 0 0
+				0 0 1 0 0
+				0 0 0 20 -10
+				"/>
+			</filter>
+		</svg>	
+		<div class="bar">
+<!-- 			<div class="circle circle3">
+				<div class="text">104</div>
+			</div>
+			<div class="circle circle3">
+				<div class="text">104</div>
+			</div>
+			<div class="circle circle3">
+				<div class="text">104</div>
+			</div> -->
+		</div>
+
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<script >
+		var home_user;
+		$(function(){
+			$(".container .circle").draggable();
+			$.ajax({
+					type: "GET",
+		            url: serverAddr + '/api/my-project-name/mark/tags',
+		            success: function (dataFromServer) {
+		            	home_user = "mark";
+		            	// console.log(dataFromServer);
+		               
+						document.querySelector(".content .container").innerHTML = "";
+						var container = document.querySelector(".container");
+						
+						for (i = 0; i < dataFromServer["tags"].length; i++) {
+						  var num = Math.floor(Math.random()*2+1);
+						  container.innerHTML += '<div class="circle circle'+num +'"><div class="text">'+ dataFromServer["tags"][i] +'</div></div>';
+						}
+							$(function(){
+							$(".container .circle").draggable();
+							})
+							for(const circle of document.querySelectorAll(".content .container .circle .text")){
+								circle.ondblclick = tag_to_name(circle.innerHTML);
+							}
+					}
+				});
+		}) 
+
+		//update circle function
+		var tag_to_name = function(tag){
+				// window.alert(this.innerHTML);
+				var ttn_helper = function(){
+				// window.alert(tag);
+				document.querySelector(".navbar .title").innerHTML = this.innerHTML;
+				$.ajax({
+					type: "GET",
+		            url: serverAddr + '/api/my-project-name/'+tag+'/usernames',
+		            // data: { "sql": null},
+		            success: function (dataFromServer) {
+		            	// console.log(dataFromServer);
+		               
+						document.querySelector(".content .container").innerHTML = "";
+						var container = document.querySelector(".container");
+						
+						for (i = 0; i < dataFromServer["usernames"].length; i++) {
+						  var num = Math.floor(Math.random()*2+1);
+						  container.innerHTML += '<div class="circle circle'+num +'"><div class="text">'+ dataFromServer["usernames"][i] +'</div></div>';
+						}
+								$(function(){
+							$(".container .circle").draggable();
+						}) 
+							for(const circle of document.querySelectorAll(".content .container .circle .text")){
+								circle.ondblclick = name_to_tag(circle.innerHTML);
+							}
+					}
+				});
+				$.ajax({
+					type: "GET",
+		            url: serverAddr + '/api/my-project-name/'+tag+'/related-tags',
+		            // data: { "sql": null},
+		            success: function (dataFromServer) {
+		            	// console.log(dataFromServer);
+		            	document.querySelector(".bar").innerHTML = "";
+		            	var bar = document.querySelector(".bar");
+		            	var index = 4;
+		            	if(dataFromServer["related tags"].length<4) index = dataFromServer["related tags"].length;
+		                for(i=0;i<index;i++){
+		                	bar.innerHTML+='<div class="circle circle3"><div class="text">'+dataFromServer["related tags"][i]+"</div></div>";
+		                }
+						
+					}
+				});
+			}
+				return ttn_helper;
+		}
+			
+			var name_to_tag = function(person){
+				// window.alert(this.innerHTML);
+
+				var ntt_helper = function(){
+					// window.alert(person);
+				document.querySelector(".navbar .title").innerHTML = this.innerHTML;
+				$.ajax({
+					type: "GET",
+		            url: serverAddr + '/api/my-project-name/'+person+'/tags',
+		            // data: { "sql": null},
+		            success: function (dataFromServer) {
+		            	// console.log(dataFromServer);
+		               document.querySelector(".bar").innerHTML = "";
+						document.querySelector(".content .container").innerHTML = "";
+						var container = document.querySelector(".container");
+						
+						for (i = 0; i < dataFromServer["tags"].length; i++) {
+						  var num = Math.floor(Math.random()*2+1);
+						  container.innerHTML += '<div class="circle circle'+num+'"><div class="text">'+ dataFromServer["tags"][i] +'</div></div>';
+						}
+								$(function(){
+							$(".container .circle").draggable();
+							}) 
+							for(const circle of document.querySelectorAll(".content .container .circle .text")){
+								circle.ondblclick = tag_to_name(circle.innerHTML);
+							}
+					}
+				});
+
+			}
+				return ntt_helper;
+			}
+			
+		//circle onclick event
+		const serverAddr = 'http://localhost:3000'
+		let circles = document.querySelectorAll(".content .container .circle .text");
+		for(const circle of circles){
+			circle.ondblclick = tag_to_name(circle.innerHTML);
+		}
+
+		document.querySelector("#home").onclick = function(){
+				$.ajax({
+					type: "GET",
+		            url: serverAddr + '/api/my-project-name/'+home_user+'/tags',
+		            // data: { "sql": null},
+		            success: function (dataFromServer) {
+		            	document.querySelector(".navbar .title").innerHTML = "myhome";
+						document.querySelector(".content .container").innerHTML = "";
+						var container = document.querySelector(".container");
+						
+						for (i = 0; i < dataFromServer["tags"].length; i++) {
+						  var num = Math.floor(Math.random())*2+1;
+						  container.innerHTML += '<div class="circle circle'+num +'"><div class="text">'+ dataFromServer["tags"][i] +'</div></div>';
+						}
+								$(function(){
+							$(".container .circle").draggable();
+							}) 
+							for(const circle of document.querySelectorAll(".content .container .circle .text")){
+								circle.ondblclick = tag_to_name(circle.innerHTML);
+							}
+					}
+				});
+		};
+		document.querySelector("#add").onclick = function(){
+			$.ajax({
+					type: "POST",
+		            url: serverAddr + '/api/my-project-name/'+"mark"+'/add-tag',
+		            data: { "tag": document.querySelector("input").value },
+		            success: function (dataFromServer) {
+		            	console.log(dataFromServer);
+		            $.ajax({
+					type: "GET",
+		            url: serverAddr + '/api/my-project-name/'+home_user+'/tags',
+		            // data: { "sql": null},
+		            success: function (dataFromServer) {
+		            	document.querySelector(".navbar .title").innerHTML = "myhome";
+						document.querySelector(".content .container").innerHTML = "";
+						var container = document.querySelector(".container");
+						var num;
+						for (i = 0; i < dataFromServer["tags"].length; i++) {
+						  num = Math.floor(Math.random())*2+1;
+						  container.innerHTML += '<div class="circle circle'+num +'"><div class="text">'+dataFromServer["tags"][i] +'</div></div>';
+						}
+						container.innerHTML += '<div class="circle circle'+Math.floor(Math.random())*2+1 +'"><div class="text">'+ document.querySelector("input").value+'</div></div>';
+								$(function(){
+							$(".container .circle").draggable();
+							}) 
+							for(const circle of document.querySelectorAll(".content .container .circle .text")){
+								circle.ondblclick = tag_to_name(circle.innerHTML);
+							}
+					}
+					});
+					}
+			});
+
+
+		};
+
+	</script>
+
+</body>
+</html>
